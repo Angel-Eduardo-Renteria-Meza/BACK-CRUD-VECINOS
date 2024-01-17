@@ -19,6 +19,16 @@ router.get("/", (req, res) => {
     .catch(err => res.json(err))
 })
 
+router.get("/:id", (req, res) => {
+    const id = req.params.id
+
+    taskSchema.findById({_id: id})
+    .then((data)=>{
+        res.json(data)
+    })
+    .catch(err => res.json(err))
+})
+
 router.put("/update/:id", (req, res) => {
     const id = req.params.id
     
